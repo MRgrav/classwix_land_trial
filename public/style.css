@@ -1,0 +1,84 @@
+/* Carousel Styles */
+.carousel-page { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+
+.carousel-section { padding: 4rem 0; }
+.section-title { 
+  text-align: center; font-size: clamp(2rem, 5vw, 3.5rem); 
+  color: white; margin-bottom: 3rem; 
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.carousel-container {
+  max-width: 1000px; margin: 0 auto;
+  position: relative; height: 500px;
+  border-radius: 2rem; overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+
+.carousel-indicators {
+  position: absolute; bottom: 20px; left: 50%;
+  transform: translateX(-50%); display: flex;
+  gap: 10px; z-index: 10;
+}
+
+.indicator {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(255,255,255,0.5); cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active { background: white; transform: scale(1.2); }
+
+.carousel {
+  width: 100%; height: 100%; overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex; width: 400%; /* 4 slides = 400% */
+  height: 100%; animation: autoSlide 24s infinite;
+}
+
+.slide {
+  width: 25%; /* 100% / 4 = 25% */
+  height: 100%; position: relative;
+}
+
+.slide img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+}
+
+.slide-content {
+  position: absolute; bottom: 30px; left: 30px;
+  background: rgba(0,0,0,0.8); color: white;
+  padding: 1.5rem 2rem; border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.slide-content h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.slide-content p { opacity: 0.9; font-size: 1.1rem; }
+
+/* Auto-slide Animation */
+@keyframes autoSlide {
+  0%, 5%        { transform: translateX(0%); }
+  20%, 25%      { transform: translateX(-25%); }
+  40%, 45%      { transform: translateX(-50%); }
+  60%, 65%      { transform: translateX(-75%); }
+  80%, 100%     { transform: translateX(0%); }
+}
+
+/* Pause on hover */
+.carousel-container:hover .slides {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-container { height: 350px; margin: 0 1rem; }
+  .slide-content { 
+    left: 20px; bottom: 20px; right: 20px;
+    padding: 1rem;
+  }
+  .slide-content h3 { font-size: 1.4rem; }
+}
