@@ -118,6 +118,9 @@ export const landingModule = new Elysia()
                     }
 
                 `}</style>
+                <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+                {/* <script src='/public/select.js'></script> */}
+
             </head>
             <body class="bg-slate-50 text-slate-900 font-sans scroll-smooth">
                 {/* Navigation */}
@@ -141,79 +144,84 @@ export const landingModule = new Elysia()
                 </nav>
 
                 <div class="grid md:grid-cols-10 min-h-dvh h-full w-full pt-12 sm:overflow-hidden sm:fixed">
-                    <aside class="md:col-span-3 bg-gradient-to-tr from-blue-800 to-purple-900 p-6 h-fit sm:h-full overflow-y-auto">
-                        {/* <div class=""> */}
-                        <div class="mx-auto p-6">
-                            {/* <div class="flex gap-2 justify-center font-semibold items-center text-4xl text-white mb-2">
+                    <aside id='success_container' class={'md:col-span-3'}>
+                        <div class="bg-gradient-to-tr from-blue-800 to-purple-900 p-6 h-fit sm:h-full overflow-y-auto">
+                            {/* <div class=""> */}
+                            <div id='success_container' class="mx-auto p-6">
+                                {/* <div class="flex gap-2 justify-center font-semibold items-center text-4xl text-white mb-2">
                                 <img src='https://pk.deolang.com/api/files/clients/qpoewnw72b2e9hh/apple_touch_icon_ikgrhid25v.png' class="h-12 w-12 rounded" />
                                 <p>CLASSWiX</p>
                             </div> */}
-                            <h2 class="text-orange-500 font-bold text-lg text-center">Book Your Free 1:1 Trial Class</h2>
-                        </div>
-                        <form
-                            hx-post="/api/registrations"
-                            hx-target="#registration-container"
-                            hx-swap="innerHTML"
-                            class="space-y-5"
-                        >
-                            <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">Select Category</label>
-                                <select name="instrument" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                                    <option value="piano">Academic</option>
-                                    <option value="guitar">Music</option>
-                                </select>
+                                <h2 class="text-orange-500 font-bold text-lg text-center">Book Your Free 1:1 Trial Class</h2>
                             </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">Select Course</label>
-                                <select name="instrument" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                                    <option value="piano">Piano</option>
-                                    <option value="guitar">Acoustic Guitar</option>
-                                    <option value="violin">Violin</option>
-                                    <option value="drums">Drums</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">Student's Name</label>
-                                <input name="name" type="text" required placeholder="John Doe" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
-                            </div>
-                            <div>
+                            <form
+                                hx-post="/api/trials"
+                                hx-target="#success_container"
+                                hx-swap="innerHTML"
+                                class="space-y-5"
+                            >
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Select Category</label>
+                                    <select id='category' name="category" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
+                                        <option value="">Select category</option>
+                                        <option value="academics">Academic</option>
+                                        <option value="musics">Music</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Select Course</label>
+                                    <select id='subject' name="subject" disabled class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
+                                        <option value="">Select subject</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Student's Name</label>
+                                    <input name="name" type="text" required placeholder="student's full name" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
+                                </div>
+                                {/* <div>
                                 <label class="block text-sm font-bold text-slate-200 mb-2">Age</label>
                                 <input name="name" type="text" required placeholder="John Doe" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">Email Address</label>
-                                <input name="email" type="email" required placeholder="john@example.com" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">WhatsApp Number</label>
-                                <input name="email" type="email" required placeholder="john@example.com" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
-                            </div>
+                            </div> */}
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Email Address</label>
+                                    <input name="email" type="email" required placeholder="arjun@zohomail.in" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Phone/WhatsApp Number</label>
+                                    <input name="phone" type="number" required placeholder="10 digit phone number" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
+                                </div>
 
-                            <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">Select Country</label>
-                                <select name="instrument" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                                    <option value="piano">Piano</option>
-                                    <option value="guitar">Acoustic Guitar</option>
-                                    <option value="violin">Violin</option>
-                                    <option value="drums">Drums</option>
-                                </select>
-                            </div>
-                            <div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Select Country</label>
+                                    <select id='country' name="country" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
+                                        <option value="">Select country</option>
+                                        <option value="india">India</option>
+                                        <option value="united states of america">United States of America</option>
+                                        <option value="united kingdom">United Kingdom</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="UAE">UAE</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-1">Address</label>
+                                    <input name="address" type="text" required placeholder="town/city, state..." class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
+                                </div>
+                                {/* <div>
                                 <label class="block text-sm font-bold text-slate-200 mb-2">Select State</label>
-                                <select name="instrument" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                                    <option value="piano">Piano</option>
-                                    <option value="guitar">Acoustic Guitar</option>
-                                    <option value="violin">Violin</option>
-                                    <option value="drums">Drums</option>
+                                <select id="state" name="state" disabled class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white" required>
+                                    <option value="">First select country</option>
                                 </select>
-                            </div>
+                            </div> */}
 
-                            <button type="submit" class="btn-submit w-full bg-zinc-400 text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-900/60 hover:scale-95 flex items-center justify-center gap-2">
-                                <span>Claim My Free Lesson</span>
-                                <span class="htmx-indicator animate-spin">⏳</span>
-                            </button>
-                        </form>
-                        {/* </div> */}
+                                <button type="submit" class="btn-submit w-full bg-zinc-400 text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-900/60 hover:scale-95 flex items-center justify-center gap-2">
+                                    <span>Claim My Free Lesson</span>
+                                    <span class="htmx-indicator animate-spin">⏳</span>
+                                </button>
+                            </form>
+                            {/* </div> */}
+                        </div>
                     </aside>
                     <main class="md:col-span-7 overflow-y-auto">
                         {/* <!-- Pure CSS Carousel --> */}
@@ -433,6 +441,7 @@ export const landingModule = new Elysia()
                         </footer>
                     </main>
                 </div>
+                <script src='/public/select.js'></script>
             </body>
         </html>
     ));

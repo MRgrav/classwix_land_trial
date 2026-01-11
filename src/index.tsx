@@ -66,14 +66,15 @@ import { Elysia } from 'elysia';
 import { html } from '@elysiajs/html';
 import { staticPlugin } from '@elysiajs/static';
 import { landingModule } from './views/index';
+import { trialApi } from './routes';
 // import { itemsModule } from './modules/items';
 
 const app = new Elysia()
     .use(html()) // Enables SSR for SEO
     .use(staticPlugin()) // Serves /public folder
     .use(landingModule) // Frontend Landing Page
-    // .use(itemsModule)   // CRUD API Module
-    .listen(3000);
+    .use(trialApi)   // CRUD API Module
+    .listen(3200);
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
 
