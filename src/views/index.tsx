@@ -171,7 +171,7 @@ export const landingModule = new Elysia()
                                 <div>
                                     <label class="block text-sm font-bold text-slate-200 mb-1">Select Course</label>
                                     <select id='subject' name="subject" disabled class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                                        <option value="">Select subject</option>
+                                        <option value="">Select category first</option>
                                     </select>
                                 </div>
                                 <div>

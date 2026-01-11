@@ -28,10 +28,12 @@ export const trialHandler = {
             // Get country code and prefix phone
             const countryCode = COUNTRY_CODES[body.country] || '+00';
             const whatsappNumber = `${countryCode}${body.phone}`;
+
+            const address = body.address || '' + body.country;
             
             const [newRequest] = await sql`
                 INSERT INTO students (name, subject, contact_number, whatsapp_number, email, address) 
-                VALUES (${body.name}, ${body.subject}, ${body.phone}, ${whatsappNumber}, ${body.email}, ${body.address || ''}, ${body.country})
+                VALUES (${body.name}, ${body.subject}, ${body.phone}, ${whatsappNumber}, ${body.email}, ${address})
                 RETURNING *
             `;
             
