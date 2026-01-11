@@ -17,6 +17,7 @@ export const trialHandler = {
         body: { 
             name: string, 
             subject: string, 
+            age: string,
             phone: string, 
             email: string, 
             country: string, 
@@ -30,10 +31,11 @@ export const trialHandler = {
             const whatsappNumber = `${countryCode}${body.phone}`;
 
             const address = body.address || '' + body.country;
+            const age = parseInt(body.age);
             
             const [newRequest] = await sql`
-                INSERT INTO students (name, subject, contact_number, whatsapp_number, email, address) 
-                VALUES (${body.name}, ${body.subject}, ${body.phone}, ${whatsappNumber}, ${body.email}, ${address})
+                INSERT INTO students (name, subject, age, contact_number, whatsapp_number, email, address) 
+                VALUES (${body.name}, ${body.subject}, ${age} ${body.phone}, ${whatsappNumber}, ${body.email}, ${address})
                 RETURNING *
             `;
             
@@ -72,6 +74,11 @@ export const trialHandler = {
                             <label class="block text-sm font-bold text-slate-200 mb-1">Student's Name</label>
                             <input name="name" type="text" required placeholder="student's full name" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
                         </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-200 mb-2">Age</label>
+                            <input name="age" type="text" required placeholder="9" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                        </div>
                         
                         <div>
                             <label class="block text-sm font-bold text-slate-200 mb-1">Email Address</label>
@@ -80,7 +87,7 @@ export const trialHandler = {
                         
                         <div>
                             <label class="block text-sm font-bold text-slate-200 mb-1">Phone/WhatsApp Number</label>
-                            <input name="phone" type="number" required placeholder="10 digit phone number" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
+                            <input name="phone" type="number" required placeholder="10 digit phone number" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
                         </div>
                         
                         <div>

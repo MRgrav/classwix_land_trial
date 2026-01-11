@@ -178,17 +178,17 @@ export const landingModule = new Elysia()
                                     <label class="block text-sm font-bold text-slate-200 mb-1">Student's Name</label>
                                     <input name="name" type="text" required placeholder="student's full name" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
                                 </div>
-                                {/* <div>
-                                <label class="block text-sm font-bold text-slate-200 mb-2">Age</label>
-                                <input name="name" type="text" required placeholder="John Doe" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
-                            </div> */}
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-200 mb-2">Age</label>
+                                    <input name="age" type="text" required placeholder="9" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                                </div>
                                 <div>
                                     <label class="block text-sm font-bold text-slate-200 mb-1">Email Address</label>
                                     <input name="email" type="email" required placeholder="arjun@zohomail.in" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-slate-200 mb-1">Phone/WhatsApp Number</label>
-                                    <input name="phone" type="number" required placeholder="10 digit phone number" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" />
+                                    <input name="phone" type="number" required placeholder="10 digit phone number" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition" onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
                                 </div>
 
                                 <div>

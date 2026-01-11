@@ -11,6 +11,7 @@ export const trialApi = new Elysia({ prefix: '/api/trials' })
         body: t.Object({
             name: t.String(),
             subject: t.String(),
+            age: t.String(),
             email: t.String(),
             phone: t.String(),
             country: t.String(),
