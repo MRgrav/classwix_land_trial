@@ -74,7 +74,7 @@ const app = new Elysia()
     .use(staticPlugin()) // Serves /public folder
     .use(landingModule) // Frontend Landing Page
     .use(trialApi)   // CRUD API Module
-    .listen(3200);
+    .listen(3000);
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
 
