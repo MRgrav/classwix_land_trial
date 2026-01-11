@@ -35,7 +35,7 @@ export const trialHandler = {
             
             const [newRequest] = await sql`
                 INSERT INTO students (name, subject, age, contact_number, whatsapp_number, email, address) 
-                VALUES (${body.name}, ${body.subject}, ${age} ${body.phone}, ${whatsappNumber}, ${body.email}, ${address})
+                VALUES (${body.name}, ${body.subject}, ${age}, ${body.phone}, ${whatsappNumber}, ${body.email}, ${address})
                 RETURNING *
             `;
             
